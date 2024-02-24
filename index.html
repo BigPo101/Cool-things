@@ -5,35 +5,26 @@
   <link rel="icon" type="image/x-icon" href="360_F_294637633_4eBaHE24EgCSo75m6PuEe5aMFBA5Pe2J (1).png">
 <a href="infinite-scroll.html" class="button" style="position: absolute; top: 100px; left: 700px;">Text Shuffle</a>
   <div id="embeddedContent"></div>
- <style>
+  <style>
     /* Style for the container of the embedded content */
     #embeddedContent {
       position: relative;
       margin: 20px auto; /* Adjust as needed */
-      border: px solid #ccc;
-      width: 300px; /* Adjust width as needed */
-      height: 200px; /* Adjust height as needed */
+      border: 1px solid #ccc;
+      width: 200px; /* Adjust width as needed */
+      height: 150px; /* Adjust height as needed */
       overflow: hidden; /* Hide content that exceeds the specified dimensions */
       display: flex;
       justify-content: center;
       align-items: center; /* Optional: Align content vertically at the center */
-      top: 10px; /* Adjust top position as needed */
-      left: 10px; /* Adjust left position as needed */
-    }
-   .app {
-      position: relative;
-      transform: scale(0.5); /* Adjust the scale factor as needed */
-      transform-origin: center; /* Center the scaling transformation */
-      top: 10px; /* Adjust top position as needed */
-      left: 10px; /* Adjust left position as needed */
-      /* Add any additional styles for the content */
     }
 
     /* Style for the embedded content itself */
     .app {
       position: relative;
-      top: 10px; /* Adjust top position as needed */
-      left: 10px; /* Adjust left position as needed */
+      transform: scale(0.8); /* Adjust the scale factor as needed */
+      transform-origin: center; /* Center the scaling transformation */
+      text-align: left; /* Align the text content to the left */
       /* Add any additional styles for the content */
     }
 
@@ -48,8 +39,8 @@
       border-radius: 5px;
       cursor: pointer;
       position: absolute;
-      top: 10px; /* Adjust top position as needed */
-      left: 10px; /* Adjust left position as needed */
+      bottom: 10px; /* Adjust bottom position as needed */
+      right: 10px; /* Adjust right position as needed */
     }
   </style>
 </head>
@@ -62,6 +53,7 @@
     <!-- Embedded content goes here -->
     <div class="app">
       <!-- Content you want to embed -->
+      <p>This is your embedded content with left-aligned text.</p>
     </div>
     <!-- Button goes here -->
     <div class="button">Click me</div>
