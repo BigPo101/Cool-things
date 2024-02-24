@@ -4,6 +4,33 @@
   <title>Cool Things</title>
   <link rel="icon" type="image/x-icon" href="360_F_294637633_4eBaHE24EgCSo75m6PuEe5aMFBA5Pe2J (1).png">
 <a href="infinite-scroll.html" class="button" style="position: absolute; top: 100px; left: 100px;">Text Shuffle</a>
-  <iframe src="infinite-scroll.html" width="200" height="100" style="border: 1px solid #ccc;, left=0px, top=0px"></iframe>
+  <div id="embeddedContent"></div>
+
+  <!-- Script to fetch and embed a specific part of another page -->
+  <script>
+    // Function to fetch and extract content
+    function embedContent() {
+      fetch('infinite-scroll.html')
+        .then(response => response.text())
+        .then(data => {
+          // Create a temporary element to hold the content
+          var tempElement = document.createElement('div');
+          tempElement.innerHTML = data;
+
+          // Extract the specific part you want (replace 'your-selector' with your actual selector)
+          var embeddedContent = tempElement.querySelector('your-selector');
+
+          // Append the extracted content to the container in your current page
+          document.getElementById('embeddedContent').appendChild(embeddedContent);
+        })
+        .catch(error => console.error('Error fetching content:', error));
+    }
+
+    // Call the function to embed content when the page loads
+    window.onload = embedContent;
+  </script>
+
+</body>
+</html>
 </head>
 </html>
