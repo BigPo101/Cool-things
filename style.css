@@ -1,15 +1,1 @@
-/* Define button styles */
-.button {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #3498db; /* Button color */
-  color: #fff; /* Text color */
-  text-decoration: none; /* Remove underline */
-  border-radius: 5px; /* Add rounded corners */
-  transition: background-color 0.3s; /* Add a smooth transition */
-}
 
-/* Hover effect */
-.button:hover {
-  background-color: #000000;
-}
