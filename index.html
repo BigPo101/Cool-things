@@ -4,7 +4,7 @@
    <link rel="icon" type="image/x-icon" href="360_F_294637633_4eBaHE24EgCSo75m6PuEe5aMFBA5Pe2J (1).png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your HTML Project</title>
+  <title>Cool Things</title>
   <style>
     /* Style for the container of the embedded content */
     #embeddedContent {
@@ -23,7 +23,7 @@
     }
 
     /* Style for the embedded content itself */
-    .your-class {
+    .app {
       position: relative;
       transform: scale(0.8); /* Adjust the scale factor as needed */
       transform-origin: center; /* Center the scaling transformation */
@@ -54,9 +54,8 @@
   <!-- Container for the embedded content -->
   <div id="embeddedContent">
     <!-- Embedded content goes here -->
-    <div class="your-class">
+    <div class="app">
       <!-- Content you want to embed -->
-      <p>This is your embedded content with left-aligned text.</p>
     </div>
     <!-- Button goes here -->
     <div class="button">Click me</div>
@@ -66,7 +65,7 @@
   <script>
     // Function to fetch and extract content
     function embedContent() {
-      fetch('another_page.html')
+      fetch('infinite-scroll')
         .then(response => {
           if (!response.ok) {
             throw new Error(`Failed to fetch: ${response.status} ${response.statusText}`);
@@ -79,7 +78,7 @@
           tempElement.innerHTML = data;
 
           // Replace 'your-class' with the actual class name of the element
-          var embeddedContent = tempElement.querySelector('.your-class');
+          var embeddedContent = tempElement.querySelector('.app');
 
           if (!embeddedContent) {
             console.error('Specified class not found on the external page.');
@@ -87,7 +86,7 @@
           }
 
           // Append the extracted content to the container in your current page
-          document.querySelector('.your-class').innerHTML = embeddedContent.innerHTML;
+          document.querySelector('.app').innerHTML = embeddedContent.innerHTML;
         })
         .catch(error => console.error('Error fetching content:', error));
     }
