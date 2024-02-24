@@ -1,31 +1,33 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <link rel="stylesheet" href="style.css">
-  <title>Cool Things</title>
-  <link rel="icon" type="image/x-icon" href="360_F_294637633_4eBaHE24EgCSo75m6PuEe5aMFBA5Pe2J (1).png">
-  <div id="embeddedContent"></div>
+   <link rel="icon" type="image/x-icon" href="360_F_294637633_4eBaHE24EgCSo75m6PuEe5aMFBA5Pe2J (1).png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your HTML Project</title>
   <style>
     /* Style for the container of the embedded content */
     #embeddedContent {
       position: relative;
-      margin: 20px auto; /* Adjust as needed */
+      margin: 20px 0; /* Adjust as needed */
       border: 1px solid #ccc;
       width: 200px; /* Adjust width as needed */
       height: 150px; /* Adjust height as needed */
       overflow: hidden; /* Hide content that exceeds the specified dimensions */
       display: flex;
-      justify-content: center;
-      align-items: center; /* Optional: Align content vertically at the center */
-      left: 0px; /* Adjust left position as needed */
-      bottom: 0px; /* Adjust bottom position as needed */
+      justify-content: flex-start; /* Align content to the left side */
+      align-items: flex-end; /* Align content to the bottom */
+      position: absolute;
+      left: 20px; /* Adjust left position as needed */
+      bottom: 30px; /* Adjust bottom position as needed */
     }
 
     /* Style for the embedded content itself */
-    .app {
+    .your-class {
       position: relative;
       transform: scale(0.8); /* Adjust the scale factor as needed */
       transform-origin: center; /* Center the scaling transformation */
-      text-align: center; /* Align the text content to the left */
+      text-align: left; /* Align the text content to the left */
       /* Add any additional styles for the content */
     }
 
@@ -52,8 +54,9 @@
   <!-- Container for the embedded content -->
   <div id="embeddedContent">
     <!-- Embedded content goes here -->
-    <div class="app">
+    <div class="your-class">
       <!-- Content you want to embed -->
+      <p>This is your embedded content with left-aligned text.</p>
     </div>
     <!-- Button goes here -->
     <div class="button">Click me</div>
@@ -63,7 +66,7 @@
   <script>
     // Function to fetch and extract content
     function embedContent() {
-      fetch('infinite-scroll.html')
+      fetch('another_page.html')
         .then(response => {
           if (!response.ok) {
             throw new Error(`Failed to fetch: ${response.status} ${response.statusText}`);
@@ -76,7 +79,7 @@
           tempElement.innerHTML = data;
 
           // Replace 'your-class' with the actual class name of the element
-          var embeddedContent = tempElement.querySelector('.app');
+          var embeddedContent = tempElement.querySelector('.your-class');
 
           if (!embeddedContent) {
             console.error('Specified class not found on the external page.');
@@ -84,7 +87,7 @@
           }
 
           // Append the extracted content to the container in your current page
-          document.querySelector('.app').innerHTML = embeddedContent.innerHTML;
+          document.querySelector('.your-class').innerHTML = embeddedContent.innerHTML;
         })
         .catch(error => console.error('Error fetching content:', error));
     }
@@ -99,8 +102,5 @@
     };
   </script>
 
-
 </body>
-</html>
-</head>
 </html>
