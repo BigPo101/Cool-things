@@ -7,18 +7,28 @@
   <div id="embeddedContent"></div>
 
   <!-- Script to fetch and embed a specific part of another page -->
-  <script>
+ <script>
     // Function to fetch and extract content
     function embedContent() {
       fetch('infinite-scroll.html')
-        .then(response => response.text())
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`Failed to fetch: ${response.status} ${response.statusText}`);
+          }
+          return response.text();
+        })
         .then(data => {
           // Create a temporary element to hold the content
           var tempElement = document.createElement('div');
           tempElement.innerHTML = data;
 
-          // Extract the specific part you want (replace 'your-selector' with your actual selector)
-          var embeddedContent = tempElement.querySelector('your-selector');
+          // Replace 'your-class' with the actual class name of the element
+          var embeddedContent = tempElement.querySelector('.your-class');
+
+          if (!embeddedContent) {
+            console.error('Specified class not found on the external page.');
+            return;
+          }
 
           // Append the extracted content to the container in your current page
           document.getElementById('embeddedContent').appendChild(embeddedContent);
@@ -29,6 +39,7 @@
     // Call the function to embed content when the page loads
     window.onload = embedContent;
   </script>
+
 
 </body>
 </html>
