@@ -1,31 +1,23 @@
+<link rel="icon" type="image/x-icon" href="360_F_294637633_4eBaHE24EgCSo75m6PuEe5aMFBA5Pe2J (1).png">
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <link rel="stylesheet" href="style.css">
-   <link rel="icon" type="image/x-icon" href="360_F_294637633_4eBaHE24EgCSo75m6PuEe5aMFBA5Pe2J (1).png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cool Things</title>
+  <title>Your HTML Project</title>
   <style>
     /* Style for the container of the embedded content */
     #embeddedContent {
-      position: relative;
-      margin: 20px 0; /* Adjust as needed */
-      border: 1px solid #ccc;
-      width: 200px; /* Adjust width as needed */
-      height: 150px; /* Adjust height as needed */
-      overflow: hidden; /* Hide content that exceeds the specified dimensions */
-      display: flex;
-      justify-content: flex-start; /* Align content to the left side */
-      align-items: flex-end; /* Align content to the bottom */
       position: absolute;
-      left: 400px; /* Adjust left position as needed */
-      bottom: 400px; /* Adjust bottom position as needed */
+      left: 20px; /* Adjust left position as needed */
+      bottom: 30px; /* Adjust bottom position as needed */
+      display: flex;
+      flex-direction: column; /* Stack children vertically */
+      align-items: flex-start; /* Align children to the left */
     }
 
     /* Style for the embedded content itself */
     .app {
-      position: relative;
       transform: scale(0.8); /* Adjust the scale factor as needed */
       transform-origin: center; /* Center the scaling transformation */
       text-align: left; /* Align the text content to the left */
@@ -34,7 +26,7 @@
 
     /* Style for the button */
     .button {
-      display: inline-block;
+      margin-top: 10px; /* Add margin to separate button from content */
       padding: 10px;
       background-color: rgba(52, 152, 219, 0.5); /* Partially transparent button color */
       color: #fff; /* Text color */
@@ -42,9 +34,6 @@
       text-decoration: none;
       border-radius: 5px;
       cursor: pointer;
-      position: absolute;
-      left: 20px; /* Adjust left position as needed */
-      bottom: 30px; /* Adjust bottom position as needed */
     }
   </style>
 </head>
@@ -57,9 +46,10 @@
     <!-- Embedded content goes here -->
     <div class="app">
       <!-- Content you want to embed -->
+      <p>This is your embedded content with left-aligned text.</p>
     </div>
     <!-- Button goes here -->
-    <div class="button">Click me</div>
+    <div class="button" onclick="alert('Button clicked!')">Click me</div>
   </div>
 
   <!-- Script to fetch and embed a specific part of another page -->
@@ -78,7 +68,7 @@
           var tempElement = document.createElement('div');
           tempElement.innerHTML = data;
 
-          // Replace 'your-class' with the actual class name of the element
+          // Replace 'app' with the actual class name of the element
           var embeddedContent = tempElement.querySelector('.app');
 
           if (!embeddedContent) {
@@ -93,13 +83,7 @@
     }
 
     // Call the function to embed content when the page loads
-    window.onload = function() {
-      embedContent();
-      // Add a click event listener to the button
-      document.querySelector('.button').addEventListener('click', function() {
-        alert('Button clicked!');
-      });
-    };
+    window.onload = embedContent;
   </script>
 
 </body>
