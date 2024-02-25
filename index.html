@@ -60,6 +60,15 @@
 
   <!-- Script to fetch and embed a specific part of another page -->
   <script>
+        // Function to add hover effect
+    function addHoverEffect() {
+      document.getElementById('appContent').classList.add('hovered');
+    }
+
+    // Function to remove hover effect
+    function removeHoverEffect() {
+      document.getElementById('appContent').classList.remove('hovered');
+    }
     // Function to fetch and extract content
     function embedContent() {
       fetch('infinite-scroll.html')
