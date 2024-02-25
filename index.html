@@ -22,7 +22,7 @@
       position: absolute; /* Allow absolute positioning within the container */
       left: 0; /* Adjust left position within the container */
       bottom: 0; /* Adjust bottom position within the container */
-      background-color: rgba(0, 0, 0, 0); /* Change the background color to red with some transparency */
+      background-color: rgba(0, 0, 0, 0); 
       color: #fff; /* Text color */
       text-align: center;
       text-decoration: none;
@@ -30,14 +30,10 @@
       padding: 15px; /* Increase padding for a larger button-like appearance */
       cursor: pointer;
       border: 5px solid #ffffff;
-      transition: background-color 0.3s ease; /* Smooth transition for background color change */
     }
       
 }
 
- #embeddedContent:hover .app {
-      background-color: rgb(0, 128, 255); /* Change the background color on hover */
-      /* Add any additional styles for the hover effect */   
 }
 
     /* Style to hide the actual button */
@@ -49,7 +45,7 @@
 <body>
 
   <!-- Container for the embedded content -->
-   <div id="embeddedContent" onmouseover="addHoverEffect()" onmouseout="removeHoverEffect()" onclick="alert('Hello!')"> <!-- Add click event to the content -->
+   <div id="embeddedContent" onclick="alert('Hello!')"> <!-- Add click event to the content -->
     <!-- Embedded content goes here -->
     <!-- Embedded content goes here -->
     <div class="app">
@@ -60,16 +56,7 @@
   </div>
 
   <!-- Script to fetch and embed a specific part of another page -->
-  <script>
-        // Function to add hover effect
-    function addHoverEffect() {
-      document.getElementById('appContent').classList.add('hovered');
-    }
-
-    // Function to remove hover effect
-    function removeHoverEffect() {
-      document.getElementById('appContent').classList.remove('hovered');
-    }
+<script>
     // Function to fetch and extract content
     function embedContent() {
       fetch('infinite-scroll.html')
