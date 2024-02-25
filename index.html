@@ -4,30 +4,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cool Things</title>
+  <title>Your HTML Project</title>
   <style>
     /* Style for the container of the embedded content */
     #embeddedContent {
       position: absolute;
-      left: 0px; /* Adjust left position as needed */
-      bottom: 500px; /* Adjust bottom position as needed */
+      left: 20px; /* Adjust left position as needed */
+      bottom: 30px; /* Adjust bottom position as needed */
       width: 200px; /* Adjust width as needed */
       height: 150px; /* Adjust height as needed */
-      transform: scale(0.1);
     }
 
     /* Style for the embedded content itself */
     .app {
-      transform: scale(5); /* Adjust the scale factor as needed */
+      transform: scale(0.8); /* Adjust the scale factor as needed */
       transform-origin: center; /* Center the scaling transformation */
-      text-align: left; /* Align the text content to the left */
       position: absolute; /* Allow absolute positioning within the container */
       left: 0; /* Adjust left position within the container */
-      bottom: 0; 
+      bottom: 0; /* Adjust bottom position within the container */
+      /* Add any additional styles for the content */
+    }
+
+    /* Style for the button */
+    .button {
+      margin-top: 10px; /* Add margin to separate button from content */
+      padding: 15px; /* Increase padding for a larger button */
+      background-color: rgba(255, 0, 0, 0.7); /* Change the background color to red with some transparency */
+      color: #fff; /* Text color */
+      text-align: center;
+      text-decoration: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transform: scale(1.5); /* Scale up the button by 1.5 times */
     }
   </style>
 </head>
-<body>
+<body onclick="alert('Page clicked!')"> <!-- Add click event to the body -->
 
   <!-- Your content goes here -->
 
@@ -36,7 +48,6 @@
     <!-- Embedded content goes here -->
     <div class="app">
       <!-- Content you want to embed -->
-      <p>This is your embedded content with left-aligned text.</p>
     </div>
     <!-- Button goes here -->
     <div class="button" onclick="alert('Button clicked!')">Click me</div>
@@ -75,6 +86,6 @@
     // Call the function to embed content when the page loads
     window.onload = embedContent;
   </script>
-  <body bgcolor="#000000">
+
 </body>
 </html>
