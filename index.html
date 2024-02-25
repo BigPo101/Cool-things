@@ -22,35 +22,34 @@
       position: absolute; /* Allow absolute positioning within the container */
       left: 0; /* Adjust left position within the container */
       bottom: 0; /* Adjust bottom position within the container */
-      /* Add any additional styles for the content */
-    }
-
-    /* Style for the button */
-    .button {
-      margin-top: 10px; /* Add margin to separate button from content */
-      padding: 15px; /* Increase padding for a larger button */
       background-color: rgba(255, 0, 0, 0.7); /* Change the background color to red with some transparency */
       color: #fff; /* Text color */
       text-align: center;
       text-decoration: none;
       border-radius: 5px;
+      padding: 15px; /* Increase padding for a larger button-like appearance */
       cursor: pointer;
-      transform: scale(1.5); /* Scale up the button by 1.5 times */
+    }
+
+    /* Style to hide the actual button */
+    .button {
+      display: none; /* Hide the button */
     }
   </style>
 </head>
-<body onclick="alert('Page clicked!')"> <!-- Add click event to the body -->
+<body>
 
   <!-- Your content goes here -->
 
   <!-- Container for the embedded content -->
-  <div id="embeddedContent">
+  <div id="embeddedContent" onclick="alert('Button-like content clicked!')"> <!-- Add click event to the content -->
     <!-- Embedded content goes here -->
     <div class="app">
       <!-- Content you want to embed -->
+      <p>This is your embedded content with a button-like appearance.</p>
     </div>
-    <!-- Button goes here -->
-    <div class="button" onclick="alert('Button clicked!')">Click me</div>
+    <!-- Hidden button goes here -->
+    <div class="button" onclick="alert('Hidden button clicked!')">Click me</div>
   </div>
 
   <!-- Script to fetch and embed a specific part of another page -->
@@ -70,22 +69,4 @@
           tempElement.innerHTML = data;
 
           // Replace 'app' with the actual class name of the element
-          var embeddedContent = tempElement.querySelector('.app');
-
-          if (!embeddedContent) {
-            console.error('Specified class not found on the external page.');
-            return;
-          }
-
-          // Append the extracted content to the container in your current page
-          document.querySelector('.app').innerHTML = embeddedContent.innerHTML;
-        })
-        .catch(error => console.error('Error fetching content:', error));
-    }
-
-    // Call the function to embed content when the page loads
-    window.onload = embedContent;
-  </script>
-
-</body>
-</html>
+          var embeddedContent = tempElemen
