@@ -39,14 +39,11 @@
 </head>
 <body>
 
-  <!-- Your content goes here -->
-
   <!-- Container for the embedded content -->
   <div id="embeddedContent" onclick="alert('Button-like content clicked!')"> <!-- Add click event to the content -->
     <!-- Embedded content goes here -->
     <div class="app">
       <!-- Content you want to embed -->
-      <p>This is your embedded content with a button-like appearance.</p>
     </div>
     <!-- Hidden button goes here -->
     <div class="button" onclick="alert('Hidden button clicked!')">Click me</div>
@@ -64,9 +61,23 @@
           return response.text();
         })
         .then(data => {
-          // Create a temporary element to hold the content
-          var tempElement = document.createElement('div');
-          tempElement.innerHTML = data;
-
           // Replace 'app' with the actual class name of the element
-          var embeddedContent = tempElemen
+          var embeddedContent = new DOMParser().parseFromString(data, 'text/html').querySelector('.app');
+
+          if (!embeddedContent) {
+            console.error('Specified class not found on the external page.');
+            return;
+          }
+
+          // Append the extracted content to the container in your current page
+          document.querySelector('.app').innerHTML = embeddedContent.innerHTML;
+        })
+        .catch(error => console.error('Error fetching content:', error));
+    }
+
+    // Call the function to embed content when the page loads
+    window.onload = embedContent;
+  </script>
+
+</body>
+</html>
